@@ -3,33 +3,86 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#6f1722">
-  <title>Hotel Patliputra Continental — AI Receptionist Demo</title>
+  <meta name="theme-color" content="#230b10">
+  <meta name="description" content="Private demonstration of the Hotel Patliputra Continental multilingual AI receptionist.">
+  <title>Patliputra Continental — AI Receptionist Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    :root{--wine:#6f1722;--gold:#c49a52;--ink:#241b1c;--paper:#fffaf2}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#fffaf2,#f4e7d3);min-height:100vh;display:grid;place-items:center;padding:24px}
-    main{width:min(720px,100%);background:#fff;border:1px solid #ead9bc;border-radius:24px;box-shadow:0 20px 60px #5e2c2430;overflow:hidden}
-    header{background:var(--wine);color:#fff;padding:32px;text-align:center} h1{font-family:Georgia,serif;margin:0 0 8px;font-size:clamp(28px,5vw,46px)}
-    header p{margin:0;color:#f4dfb8}.content{padding:32px}.status{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid #ead9bc;border-radius:14px;padding:14px;margin-bottom:22px}.dot{width:11px;height:11px;border-radius:50%;background:#24964f;box-shadow:0 0 0 5px #24964f20}.steps{display:grid;gap:14px}.step{display:flex;gap:14px;align-items:flex-start}.num{background:var(--wine);color:#fff;border-radius:999px;min-width:28px;height:28px;display:grid;place-items:center;font-weight:700}.step p{margin:3px 0;line-height:1.5}.note{margin-top:24px;padding:16px;border-left:4px solid var(--gold);background:#fff8e9;border-radius:8px}.talk{width:100%;margin:0 0 24px;border:0;border-radius:14px;background:var(--wine);color:#fff;padding:18px 22px;font-size:20px;font-weight:750;cursor:pointer;box-shadow:0 8px 22px #6f172238}.talk:hover{background:#861e2b}.talk:focus-visible{outline:4px solid #c49a5266;outline-offset:3px}.hint{text-align:center;margin:-12px 0 24px;color:#665256;font-size:14px}.languages{margin-top:22px;color:#60474b;font-weight:600;text-align:center}footer{text-align:center;padding:0 32px 28px;color:#76666a;font-size:13px}
+    :root{--wine:#6f1722;--wine-deep:#230b10;--wine-soft:#a83a47;--gold:#d3ad68;--cream:#fbf5e9;--paper:#fffdf8;--ink:#24181b;--muted:#75666a;--line:rgba(111,23,34,.13);--shadow:0 28px 80px rgba(42,13,19,.18)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 8% 8%,rgba(211,173,104,.18),transparent 25%),radial-gradient(circle at 90% 22%,rgba(111,23,34,.12),transparent 29%);z-index:-1}
+    .shell{width:min(1180px,calc(100% - 36px));margin:18px auto 42px}.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 4px}.brand{display:flex;gap:13px;align-items:center}.crest{width:42px;height:42px;border:1px solid rgba(111,23,34,.22);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.65);color:var(--wine);font-family:"Playfair Display",serif;font-size:21px}.brand-copy strong{display:block;font-family:"Playfair Display",serif;font-size:18px}.brand-copy span{display:block;color:var(--muted);font-size:11px;letter-spacing:.17em;text-transform:uppercase;margin-top:2px}.demo-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(111,23,34,.14);background:rgba(255,255,255,.65);backdrop-filter:blur(12px);border-radius:999px;padding:9px 14px;color:var(--wine);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase}.pulse{width:8px;height:8px;border-radius:50%;background:#35a762;box-shadow:0 0 0 5px rgba(53,167,98,.12)}
+    .hero{position:relative;overflow:hidden;min-height:680px;border-radius:34px;background:linear-gradient(132deg,#250b11 0%,#4c111b 52%,#781d2a 100%);color:#fff;box-shadow:var(--shadow);display:grid;grid-template-columns:1.05fr .95fr}.hero:before{content:"";position:absolute;width:560px;height:560px;border:1px solid rgba(211,173,104,.18);border-radius:50%;right:-180px;top:-260px;box-shadow:0 0 0 70px rgba(211,173,104,.035),0 0 0 140px rgba(211,173,104,.025)}.hero:after{content:"PC";position:absolute;right:3%;bottom:-11%;font-family:"Playfair Display",serif;font-size:290px;line-height:1;color:rgba(255,255,255,.025);letter-spacing:-.1em}.hero-copy{padding:72px 64px;position:relative;z-index:2;align-self:center}.eyebrow{display:flex;align-items:center;gap:12px;color:#efd9b3;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700}.eyebrow:before{content:"";width:38px;height:1px;background:var(--gold)}h1{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(48px,6.4vw,84px);line-height:1.02;letter-spacing:-.035em;margin:24px 0}.hero-copy>p{font-size:18px;line-height:1.75;color:rgba(255,255,255,.76);max-width:610px;margin:0 0 30px}.disclaimer{display:flex;gap:10px;align-items:flex-start;border-left:2px solid var(--gold);padding:3px 0 3px 15px;color:#eadfce;font-size:13px;line-height:1.55;max-width:600px}.actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:32px}.talk{border:0;border-radius:14px;background:linear-gradient(135deg,#e2bf7b,#c89543);color:#291319;padding:17px 23px;font:700 16px "DM Sans",sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:11px;box-shadow:0 14px 34px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}.talk:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.3)}.talk:focus-visible{outline:3px solid #fff;outline-offset:4px}.mic{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:rgba(35,11,16,.12)}.availability{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:8px;align-items:center}.availability i{width:8px;height:8px;border-radius:50%;background:#54d584;display:block;box-shadow:0 0 0 5px rgba(84,213,132,.12)}
+    .demo-panel{position:relative;z-index:2;margin:55px 54px 55px 0;border:1px solid rgba(255,255,255,.15);border-radius:26px;background:rgba(255,255,255,.08);backdrop-filter:blur(18px);padding:32px;align-self:center}.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#e6c98f;font-weight:700}.demo-panel h2{font-family:"Playfair Display",serif;font-size:30px;font-weight:500;margin:11px 0 24px}.language-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.language{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 12px}.language strong{display:block;font-size:17px;margin-bottom:3px}.language span{font-size:11px;color:rgba(255,255,255,.55)}.flow{margin-top:26px;display:grid;gap:15px}.flow-row{display:grid;grid-template-columns:29px 1fr;gap:12px;align-items:start}.flow-row b{height:29px;border-radius:50%;background:rgba(211,173,104,.16);color:#f0d49e;display:grid;place-items:center;font-size:12px}.flow-row strong{display:block;font-size:14px}.flow-row span{display:block;font-size:12px;line-height:1.5;color:rgba(255,255,255,.57);margin-top:2px}.meet-note{margin-top:24px;padding:14px 15px;border-radius:13px;background:rgba(0,0,0,.17);font-size:12px;line-height:1.55;color:rgba(255,255,255,.68)}
+    .content{padding:74px 6px 0}.section-head{max-width:760px;margin:0 auto 38px;text-align:center}.section-head span{color:var(--wine);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase}.section-head h2{font-family:"Playfair Display",serif;font-size:clamp(34px,5vw,54px);font-weight:500;line-height:1.12;margin:13px 0}.section-head p{color:var(--muted);line-height:1.7;margin:0}.prompts{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.prompt{position:relative;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:20px;padding:24px 24px 22px;box-shadow:0 12px 36px rgba(83,43,48,.06);transition:transform .2s,border-color .2s}.prompt:hover{transform:translateY(-3px);border-color:rgba(111,23,34,.25)}.prompt-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.prompt-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--wine)}.prompt-icon{font-size:20px}.prompt q{display:block;font-family:"Playfair Display",serif;font-size:21px;line-height:1.45}.prompt p{margin:11px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+    .capabilities{margin-top:70px;padding:42px;border:1px solid var(--line);border-radius:26px;background:var(--paper);display:grid;grid-template-columns:.8fr 1.2fr;gap:42px}.cap-copy h3{font-family:"Playfair Display",serif;font-size:35px;font-weight:500;margin:0 0 12px}.cap-copy p{color:var(--muted);line-height:1.65;margin:0}.cap-list{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.cap{border:1px solid var(--line);border-radius:15px;padding:16px}.cap strong{display:block;margin-bottom:5px}.cap span{color:var(--muted);font-size:12px;line-height:1.5}.privacy{margin:68px 0 0;border-radius:26px;background:#efe4d0;padding:36px 42px;display:flex;justify-content:space-between;gap:38px;align-items:center}.privacy h3{font-family:"Playfair Display",serif;font-size:29px;font-weight:500;margin:0 0 8px}.privacy p{margin:0;color:#6d5b58;line-height:1.6;font-size:14px;max-width:740px}.privacy-badge{flex:0 0 auto;border:1px solid rgba(111,23,34,.18);border-radius:999px;padding:12px 16px;color:var(--wine);font-weight:700;font-size:12px}.footer{padding:32px 6px 0;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}.footer strong{color:var(--wine)}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-copy{padding:56px 36px 30px}.demo-panel{margin:12px 30px 34px}.capabilities{grid-template-columns:1fr}.hero:after{font-size:220px}.prompts{grid-template-columns:1fr}}
+    @media(max-width:600px){.shell{width:min(100% - 20px,1180px);margin-top:8px}.brand-copy span{display:none}.demo-chip{padding:8px 10px;font-size:10px}.hero{border-radius:24px}.hero-copy{padding:46px 24px 25px}.hero-copy>p{font-size:16px}.actions{align-items:flex-start;flex-direction:column}.talk{width:100%;justify-content:center}.demo-panel{margin:10px 16px 18px;padding:23px}.language-grid{grid-template-columns:1fr}.content{padding-top:54px}.capabilities{padding:26px}.cap-list{grid-template-columns:1fr}.privacy{padding:27px;display:block}.privacy-badge{display:inline-block;margin-top:20px}.footer{display:block;line-height:1.7}h1{font-size:46px}}
   </style>
 </head>
 <body>
-  <main>
-    <header><h1>Hotel Patliputra Continental</h1><p>AI Receptionist — Private Demonstration</p></header>
-    <section class="content">
-      <div class="status"><span class="dot"></span><strong>Receptionist ready</strong></div>
-      <button class="talk" type="button" onclick="openReceptionist()">🎙 Talk to the Receptionist</button>
-      <div class="hint">Then choose “Skip and just ask” and press the phone button.</div>
-      <div class="steps">
-        <div class="step"><span class="num">1</span><p>Use Chrome, Edge or Safari and allow microphone access.</p></div>
-        <div class="step"><span class="num">2</span><p>Open the receptionist bubble and start a voice call.</p></div>
-        <div class="step"><span class="num">3</span><p>Speak naturally in Maithili, Hindi, Hinglish or English.</p></div>
-      </div>
-      <div class="note"><strong>During Google Meet:</strong> use headphones and mute the Meet microphone while speaking with the receptionist to prevent echo.</div>
-      <div class="languages">मैथिली · हिंदी / Hinglish · English</div>
-    </section>
-    <footer>Demo enquiries are recorded for review. Availability and reservations require confirmation from the hotel.</footer>
-  </main>
+  <div class="shell">
+    <nav class="nav" aria-label="Demo header">
+      <div class="brand"><div class="crest" aria-hidden="true">P</div><div class="brand-copy"><strong>Patliputra Continental</strong><span>Patna · Bihar</span></div></div>
+      <div class="demo-chip"><span class="pulse"></span>Private demo</div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Interactive voice experience</div>
+          <h1>Meet the hotel’s<br>AI receptionist.</h1>
+          <p>Experience a multilingual hotel enquiry assistant designed to listen, respond naturally and capture the details a front-desk team needs.</p>
+          <div class="disclaimer"><span>This is a demonstration environment. The assistant cannot confirm live availability, reservations, payments or service completion.</span></div>
+          <div class="actions">
+            <button class="talk" type="button" onclick="openReceptionist()"><span class="mic">🎙</span>Talk to the receptionist</button>
+            <div class="availability"><i></i>Demo agent online</div>
+          </div>
+        </div>
+        <aside class="demo-panel" aria-label="How the demo works">
+          <div class="panel-label">Before you begin</div>
+          <h2>A simple three-step experience</h2>
+          <div class="language-grid">
+            <div class="language"><strong>मैथिली</strong><span>Maithili</span></div>
+            <div class="language"><strong>हिंदी</strong><span>Hindi / Hinglish</span></div>
+            <div class="language"><strong>English</strong><span>English</span></div>
+          </div>
+          <div class="flow">
+            <div class="flow-row"><b>1</b><div><strong>Open the receptionist</strong><span>Press the gold button on this page.</span></div></div>
+            <div class="flow-row"><b>2</b><div><strong>Choose “Skip and just ask”</strong><span>No account is required for this demonstration.</span></div></div>
+            <div class="flow-row"><b>3</b><div><strong>Press the phone icon</strong><span>Allow microphone access and speak naturally.</span></div></div>
+          </div>
+          <div class="meet-note"><strong>Using Google Meet?</strong> Wear headphones and mute your Meet microphone while speaking with the receptionist. This prevents echo and gives the clearest voice experience.</div>
+        </aside>
+      </section>
+
+      <section class="content">
+        <header class="section-head"><span>Explore the experience</span><h2>Try a real hotel conversation</h2><p>Use any of these examples, change language mid-conversation, or ask your own question about the hotel.</p></header>
+        <div class="prompts">
+          <article class="prompt"><div class="prompt-top"><span class="prompt-tag">Room enquiry</span><span class="prompt-icon">🛏️</span></div><q>Mujhe 12 October se do nights ke liye ek room chahiye.</q><p>The assistant should collect the missing enquiry details one at a time without claiming availability.</p></article>
+          <article class="prompt"><div class="prompt-top"><span class="prompt-tag">In-house guest</span><span class="prompt-icon">🛎️</span></div><q>Main room 302 se bol raha hoon. Extra towel chahiye.</q><p>It should recognise an in-house request, capture the room, request and urgency.</p></article>
+          <article class="prompt"><div class="prompt-top"><span class="prompt-tag">Language switch</span><span class="prompt-icon">🌐</span></div><q>Could you explain that in English?</q><p>The receptionist should move naturally between Maithili, Hindi, Hinglish and English.</p></article>
+          <article class="prompt"><div class="prompt-top"><span class="prompt-tag">Human escalation</span><span class="prompt-icon">🤝</span></div><q>I want to organise a wedding for 300 guests.</q><p>Large events, complaints and human requests should be captured and escalated for follow-up.</p></article>
+        </div>
+
+        <section class="capabilities">
+          <div class="cap-copy"><h3>Built for responsible front-desk support</h3><p>The demo shows the conversational layer and structured intake. Hotel staff remain responsible for operational confirmation.</p></div>
+          <div class="cap-list">
+            <div class="cap"><strong>Verified answers</strong><span>Uses configured hotel knowledge and avoids guessing.</span></div>
+            <div class="cap"><strong>Structured intake</strong><span>Captures guest, room, dates, request, priority and next action.</span></div>
+            <div class="cap"><strong>Safe escalation</strong><span>Routes complaints, uncertainty, group and event enquiries to people.</span></div>
+            <div class="cap"><strong>Clear boundaries</strong><span>Does not claim live availability or confirm a reservation.</span></div>
+          </div>
+        </section>
+
+        <section class="privacy"><div><h3>Designed for a controlled demonstration</h3><p>Calls may be transcribed and summarised for evaluation. Do not share card numbers, UPI PINs, CVVs, OTPs or other sensitive payment information during the demo.</p></div><div class="privacy-badge">Demo use only</div></section>
+      </section>
+    </main>
+
+    <footer class="footer"><span><strong>Hotel Patliputra Continental</strong> · AI Receptionist Demonstration</span><span>Availability, rates and reservations require hotel confirmation.</span></footer>
+  </div>
   <script src="https://app.thinnest.ai/widget.js" data-key="pk_550e29a4ed5d47ada0766253a6ff048b" async></script>
   <script>function openReceptionist(){if(window.AgentWidget){window.AgentWidget.open();return}setTimeout(function(){if(window.AgentWidget)window.AgentWidget.open();else alert("The receptionist is still loading. Please try again in a moment.")},700)}</script>
 </body>
