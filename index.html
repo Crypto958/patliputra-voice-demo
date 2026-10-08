@@ -10,7 +10,7 @@
     *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#fffaf2,#f4e7d3);min-height:100vh;display:grid;place-items:center;padding:24px}
     main{width:min(720px,100%);background:#fff;border:1px solid #ead9bc;border-radius:24px;box-shadow:0 20px 60px #5e2c2430;overflow:hidden}
     header{background:var(--wine);color:#fff;padding:32px;text-align:center} h1{font-family:Georgia,serif;margin:0 0 8px;font-size:clamp(28px,5vw,46px)}
-    header p{margin:0;color:#f4dfb8}.content{padding:32px}.status{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid #ead9bc;border-radius:14px;padding:14px;margin-bottom:22px}.dot{width:11px;height:11px;border-radius:50%;background:#24964f;box-shadow:0 0 0 5px #24964f20}.steps{display:grid;gap:14px}.step{display:flex;gap:14px;align-items:flex-start}.num{background:var(--wine);color:#fff;border-radius:999px;min-width:28px;height:28px;display:grid;place-items:center;font-weight:700}.step p{margin:3px 0;line-height:1.5}.note{margin-top:24px;padding:16px;border-left:4px solid var(--gold);background:#fff8e9;border-radius:8px}.languages{margin-top:22px;color:#60474b;font-weight:600;text-align:center}footer{text-align:center;padding:0 32px 28px;color:#76666a;font-size:13px}
+    header p{margin:0;color:#f4dfb8}.content{padding:32px}.status{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid #ead9bc;border-radius:14px;padding:14px;margin-bottom:22px}.dot{width:11px;height:11px;border-radius:50%;background:#24964f;box-shadow:0 0 0 5px #24964f20}.steps{display:grid;gap:14px}.step{display:flex;gap:14px;align-items:flex-start}.num{background:var(--wine);color:#fff;border-radius:999px;min-width:28px;height:28px;display:grid;place-items:center;font-weight:700}.step p{margin:3px 0;line-height:1.5}.note{margin-top:24px;padding:16px;border-left:4px solid var(--gold);background:#fff8e9;border-radius:8px}.talk{width:100%;margin:0 0 24px;border:0;border-radius:14px;background:var(--wine);color:#fff;padding:18px 22px;font-size:20px;font-weight:750;cursor:pointer;box-shadow:0 8px 22px #6f172238}.talk:hover{background:#861e2b}.talk:focus-visible{outline:4px solid #c49a5266;outline-offset:3px}.hint{text-align:center;margin:-12px 0 24px;color:#665256;font-size:14px}.languages{margin-top:22px;color:#60474b;font-weight:600;text-align:center}footer{text-align:center;padding:0 32px 28px;color:#76666a;font-size:13px}
   </style>
 </head>
 <body>
@@ -18,6 +18,8 @@
     <header><h1>Hotel Patliputra Continental</h1><p>AI Receptionist — Private Demonstration</p></header>
     <section class="content">
       <div class="status"><span class="dot"></span><strong>Receptionist ready</strong></div>
+      <button class="talk" type="button" onclick="openReceptionist()">🎙 Talk to the Receptionist</button>
+      <div class="hint">Then choose “Skip and just ask” and press the phone button.</div>
       <div class="steps">
         <div class="step"><span class="num">1</span><p>Use Chrome, Edge or Safari and allow microphone access.</p></div>
         <div class="step"><span class="num">2</span><p>Open the receptionist bubble and start a voice call.</p></div>
@@ -29,5 +31,6 @@
     <footer>Demo enquiries are recorded for review. Availability and reservations require confirmation from the hotel.</footer>
   </main>
   <script src="https://app.thinnest.ai/widget.js" data-key="pk_550e29a4ed5d47ada0766253a6ff048b" async></script>
+  <script>function openReceptionist(){if(window.AgentWidget){window.AgentWidget.open();return}setTimeout(function(){if(window.AgentWidget)window.AgentWidget.open();else alert("The receptionist is still loading. Please try again in a moment.")},700)}</script>
 </body>
 </html>
